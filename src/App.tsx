@@ -1,20 +1,26 @@
-import { Route, Routes, useNavigate } from "react-router";
+import { Route, Routes, Navigate } from "react-router";
 import AuthPage from "./pages/AuthPage";
-import { useEffect } from "react";
 import { ROUTES } from "./constants/routes";
+import { useAuthStore } from "./store/auth";
+import HomePage from "./pages/HomePage";
 
 export default function App() {
-  const navigate = useNavigate();
-
-  useEffect(() => {
-    navigate(ROUTES.AUTH);
-  });
+  const { isAuthenticated } = useAuthStore();
 
   return (
-    <>
-      <Routes>
-        <Route path={ROUTES.AUTH} element={<AuthPage />} />
-      </Routes>
-    </>
+    <Routes>
+      <Route
+        path={ROUTES.AUTH}
+        element={
+          isAuthenticated ? <Navigate to={ROUTES.HOME} replace /> : <AuthPage />
+        }
+      />
+      <Route
+        path={ROUTES.HOME}
+        element={
+          isAuthenticated ? <HomePage /> : <Navigate to={ROUTES.AUTH} replace />
+        }
+      />
+    </Routes>
   );
 }

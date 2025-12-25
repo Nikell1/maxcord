@@ -1,5 +1,6 @@
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { useState } from "react";
 import {
   Field,
   FieldDescription,
@@ -8,11 +9,18 @@ import {
 } from "@/components/ui/field";
 import { Input } from "@/components/ui/input";
 
-interface AuthFormProps {
+interface IAuthFormProps {
   authOnclick: () => void;
 }
 
-export default function SignupForm({ authOnclick }: AuthFormProps) {
+export default function SignupForm({ authOnclick }: IAuthFormProps) {
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [username, setUsername] = useState("");
+
+  const isFormValid =
+    email.length > 3 && password.length > 3 && username.length > 1;
+
   return (
     <Card className="bg-secondary">
       <CardHeader>
@@ -24,42 +32,57 @@ export default function SignupForm({ authOnclick }: AuthFormProps) {
         <form>
           <FieldGroup>
             <Field>
-              <FieldLabel htmlFor="email">Email</FieldLabel>
+              <FieldLabel
+                className="after:content-['*'] after:text-destructive"
+                htmlFor="email"
+              >
+                Email
+              </FieldLabel>
               <Input
                 className="bg-custom-accent-secondary"
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
                 id="email"
                 type="email"
                 placeholder="m@example.com"
-                required
               />
             </Field>
             <Field>
               <FieldLabel htmlFor="name">Отображаемое имя</FieldLabel>
               <Input
                 className="bg-custom-accent-secondary"
-                id="name"
                 type="text"
                 placeholder="John Doe"
-                required
               />
             </Field>
             <Field>
-              <FieldLabel htmlFor="name">Имя пользователя</FieldLabel>
+              <FieldLabel
+                className="after:content-['*'] after:text-destructive"
+                htmlFor="name"
+              >
+                Имя пользователя
+              </FieldLabel>
               <Input
                 className="bg-custom-accent-secondary"
-                id="name"
                 type="text"
+                value={username}
+                onChange={(e) => setUsername(e.target.value)}
                 placeholder="John Doe"
-                required
               />
             </Field>
             <Field>
-              <FieldLabel htmlFor="password">Пароль</FieldLabel>
+              <FieldLabel
+                className="after:content-['*'] after:text-destructive"
+                htmlFor="password"
+              >
+                Пароль
+              </FieldLabel>
               <Input
                 className="bg-custom-accent-secondary"
                 id="password"
                 type="password"
-                required
+                value={password}
+                onChange={(e) => setPassword(e.target.value)}
               />
             </Field>
             <FieldGroup>
@@ -67,6 +90,7 @@ export default function SignupForm({ authOnclick }: AuthFormProps) {
                 <Button
                   className="bg-custom-accent hover:bg-custom-accent/90 text-white cursor-pointer"
                   type="submit"
+                  disabled={!isFormValid}
                 >
                   Создать учетную запись
                 </Button>
