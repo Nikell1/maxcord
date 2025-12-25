@@ -1,6 +1,6 @@
 import { useState } from "react";
-import AuthForm from "@/components/AuthForm";
-import SignupForm from "@/components/SignupForm";
+import AuthForm from "@/components/authPage/AuthForm";
+import SignupForm from "@/components/authPage/SignupForm";
 import { StarsBackground } from "@/components/animate-ui/components/backgrounds/stars";
 import { cn } from "@/lib/utils";
 

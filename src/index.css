@@ -5,6 +5,7 @@
 
 @theme inline {
   --color-custom-accent: rgb(126, 86, 255);
+  --color-custom-accent-gray: rgb(153, 154, 158);
   --color-custom-secondary: rgb(57 58 65);
   --color-custom-accent-secondary: rgb(33, 33, 37);
   --radius-sm: calc(var(--radius) - 4px);
