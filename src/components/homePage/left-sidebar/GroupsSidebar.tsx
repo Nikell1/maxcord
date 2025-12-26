@@ -1,10 +1,10 @@
 import { Separator } from "@radix-ui/react-separator";
-import { Button } from "../ui/button";
+import { Button } from "../../ui/button";
 import { Users } from "lucide-react";
 
 export default function GroupsSidebar() {
   return (
-    <div className="h-full w-full border-l border-t rounded-tl-2xl flex flex-col min-h-0">
+    <>
       <div className="shrink-0 w-full h-15 flex p-3 border-b">
         <Button
           variant={"secondary"}
@@ -45,6 +45,6 @@ export default function GroupsSidebar() {
           </div>
         </div>
       </div>
-    </div>
+    </>
   );
 }
