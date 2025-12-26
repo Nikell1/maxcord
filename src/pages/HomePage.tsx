@@ -1,16 +1,16 @@
-import ChannelsSidebar from "@/components/ChannelsSidebar";
-import ChatBlock from "@/components/ChatBlock";
-import GroupsSidebar from "@/components/GroupsSidebar";
-import TopSide from "@/components/TopSide";
-import UserInfoSidebar from "@/components/UserInfoSidebar";
+import ChannelsSidebar from "@/components/homePage/ChannelsSidebar";
+import ChatBlock from "@/components/homePage/ChatBlock";
+import GroupsSidebar from "@/components/homePage/GroupsSidebar";
+import TopSide from "@/components/homePage/TopSide";
+import UserInfoSidebar from "@/components/homePage/UserInfoSidebar";
 
 export default function HomePage() {
   return (
     <div className="w-screen h-screen bg-background flex flex-col">
       <TopSide />
-      <div className="w-screen h-full flex flex-row">
-        <div className="h-full flex flex-col w-120">
-          <div className="flex flex-row h-full">
+      <div className="flex-1 flex min-h-0">
+        <div className="flex flex-col w-120 min-h-0">
+          <div className="flex-1 flex min-h-0 overflow-hidden">
             <ChannelsSidebar />
             <GroupsSidebar />
           </div>
