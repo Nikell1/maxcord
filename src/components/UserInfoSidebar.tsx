@@ -2,7 +2,7 @@ import { Mic, Headphones, Settings } from "lucide-react";
 
 export default function UserInfoSidebar() {
   return (
-    <div className="absolute bottom-0 left-3.5 w-[20%] bg-accent rounded-t-xl px-3 py-4 flex flex-row justify-between">
+    <div className=" w-[90%] bg-accent/50 rounded-t-xl mx-auto px-3 py-4 flex flex-row justify-between">
       <div className="flex flex-row">
         <div className="bg-custom-accent-secondary rounded-full size-10 my-auto"></div>
         <div className="flex flex-col ml-2">

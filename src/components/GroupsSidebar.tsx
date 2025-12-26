@@ -4,8 +4,8 @@ import { Users } from "lucide-react";
 
 export default function GroupsSidebar() {
   return (
-    <div className="h-full w-[22%] border-r flex flex-col">
-      <div className="w-full p-3">
+    <div className="h-full w-full border-l border-t rounded-tl-2xl flex flex-col">
+      <div className="w-full h-15 flex p-3 border-b">
         <Button
           variant={"secondary"}
           className="bg-custom-accent-secondary border w-full cursor-pointer hover:bg-custom-accent-secondary/80"
@@ -13,7 +13,7 @@ export default function GroupsSidebar() {
           Найти или начать беседу
         </Button>
       </div>
-      <div className="border-t w-full h-full px-3 py-5">
+      <div className="w-full h-full px-3 py-5">
         <div className="flex flex-row px-2 cursor-pointer">
           <Users className=" mr-4 text-custom-accent-gray" />
           <span className="text-custom-accent-gray font-medium">Друзья</span>
