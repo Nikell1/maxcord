@@ -1,4 +1,5 @@
 export const ROUTES = {
-  HOME: "/",
+  HOME: "/channels",
   AUTH: "/auth",
+  ME: "@me",
 };

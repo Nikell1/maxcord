@@ -1,31 +1,31 @@
 import { Separator } from "@radix-ui/react-separator";
 import LogoIcon from "../LogoIcon";
 import { CirclePlus, Compass } from "lucide-react";
-import { useHomeStore } from "@/store/home";
+import { ROUTES } from "@/constants/routes";
+import { Link, useLocation } from "react-router";
 
 export default function ChannelsSidebar() {
-  const { isServersBlock } = useHomeStore();
-  const channelClickHandler = useHomeStore(
-    (state) => state.channelClickHandler
-  );
+  const location = useLocation();
+  const isMeRoute = location.pathname.includes(ROUTES.ME);
+
   return (
     <div className="h-full w-25 pt-3 flex flex-col overflow-y-auto no-scrollbar">
-      <div className="mx-auto">
-        <div
-          onClick={() => channelClickHandler(false)}
+      <div className="mx-auto flex flex-col">
+        <Link
+          to={ROUTES.ME}
           className={`${
-            isServersBlock ? "bg-accent" : "bg-custom-accent"
+            isMeRoute ? "bg-custom-accent" : "bg-accent"
           } p-2 size-12 rounded-xl cursor-pointer`}
         >
           <LogoIcon className="text-white size-full" />
-        </div>
+        </Link>
         <Separator className="border-t my-2" />
         {Array.from({ length: 20 }).map((_, i) => (
-          <div
-            onClick={() => channelClickHandler(true)}
+          <Link
+            to={i.toString()}
             key={i}
             className="cursor-pointer bg-accent size-12 rounded-xl mb-4"
-          ></div>
+          ></Link>
         ))}
         <div className="bg-accent size-12 rounded-xl mb-4 p-2.5">
           <CirclePlus className="size-full" />

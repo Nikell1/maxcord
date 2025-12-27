@@ -3,12 +3,24 @@ import AuthPage from "./pages/AuthPage";
 import { ROUTES } from "./constants/routes";
 import { useAuthStore } from "./store/auth";
 import HomePage from "./pages/HomePage";
+import GroupsSidebar from "./components/homePage/left-sidebar/GroupsSidebar";
+import ServerSidebar from "./components/homePage/left-sidebar/ServerSidebar";
 
 export default function App() {
   const { isAuthenticated } = useAuthStore();
 
   return (
     <Routes>
+      <Route
+        path="/"
+        element={
+          isAuthenticated ? (
+            <Navigate to={ROUTES.HOME} replace />
+          ) : (
+            <Navigate to={ROUTES.AUTH} replace />
+          )
+        }
+      />
       <Route
         path={ROUTES.AUTH}
         element={
@@ -20,7 +32,11 @@ export default function App() {
         element={
           isAuthenticated ? <HomePage /> : <Navigate to={ROUTES.AUTH} replace />
         }
-      />
+      >
+        <Route index element={<Navigate to={ROUTES.ME} replace />} />
+        <Route path={ROUTES.ME} element={<GroupsSidebar />} />
+        <Route path=":serverId" element={<ServerSidebar />} />
+      </Route>
     </Routes>
   );
 }

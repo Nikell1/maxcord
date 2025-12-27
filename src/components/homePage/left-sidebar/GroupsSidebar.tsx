@@ -1,6 +1,7 @@
 import { Separator } from "@radix-ui/react-separator";
 import { Button } from "../../ui/button";
 import { Users } from "lucide-react";
+import { Link } from "react-router";
 
 export default function GroupsSidebar() {
   return (
@@ -34,12 +35,12 @@ export default function GroupsSidebar() {
           <div className="flex-1 overflow-y-auto no-scrollbar min-h-0">
             <div className="flex flex-col">
               {Array.from({ length: 20 }).map((_, i) => (
-                <div key={i} className="flex flex-row w-full mb-3">
+                <Link to={"/p"} key={i} className="flex flex-row w-full mb-3">
                   <div className="bg-accent rounded-full size-10 mr-4 shrink-0"></div>
                   <span className="my-auto text-custom-accent-gray truncate">
                     Mukcep
                   </span>
-                </div>
+                </Link>
               ))}
             </div>
           </div>
