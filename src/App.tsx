@@ -34,8 +34,14 @@ export default function App() {
         }
       >
         <Route index element={<Navigate to={ROUTES.ME} replace />} />
-        <Route path={ROUTES.ME} element={<GroupsSidebar />} />
-        <Route path=":serverId" element={<ServerSidebar />} />
+        <Route path={ROUTES.ME} element={<GroupsSidebar />}>
+          <Route index element={<Navigate to={ROUTES.CHAT_ID} />} />
+          <Route path={ROUTES.CHAT_ID} />
+        </Route>
+        <Route path={ROUTES.SERVER_ID} element={<ServerSidebar />}>
+          <Route index element={<Navigate to={ROUTES.SERVER_BRACH_ID} />} />
+          <Route path={ROUTES.SERVER_BRACH_ID} />
+        </Route>
       </Route>
     </Routes>
   );

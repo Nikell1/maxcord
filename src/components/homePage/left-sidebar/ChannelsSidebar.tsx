@@ -7,6 +7,7 @@ import { Link, useLocation } from "react-router";
 export default function ChannelsSidebar() {
   const location = useLocation();
   const isMeRoute = location.pathname.includes(ROUTES.ME);
+  const activeServerId = location.pathname.split("/")[2];
 
   return (
     <div className="h-full w-25 pt-3 flex flex-col overflow-y-auto no-scrollbar">
@@ -14,8 +15,8 @@ export default function ChannelsSidebar() {
         <Link
           to={ROUTES.ME}
           className={`${
-            isMeRoute ? "bg-custom-accent" : "bg-accent"
-          } p-2 size-12 rounded-xl cursor-pointer`}
+            isMeRoute ? "channelActive bg-custom-accent" : "bg-accent"
+          } p-2 size-12 rounded-xl cursor-pointer relative`}
         >
           <LogoIcon className="text-white size-full" />
         </Link>
@@ -24,7 +25,9 @@ export default function ChannelsSidebar() {
           <Link
             to={i.toString()}
             key={i}
-            className="cursor-pointer bg-accent size-12 rounded-xl mb-4"
+            className={`${
+              activeServerId === i.toString() && "channelActive"
+            } bg-accent cursor-pointer size-12 rounded-xl mb-4 relative`}
           ></Link>
         ))}
         <div className="bg-accent size-12 rounded-xl mb-4 p-2.5">

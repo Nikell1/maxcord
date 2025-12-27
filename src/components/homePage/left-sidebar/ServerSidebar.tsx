@@ -1,5 +1,6 @@
 import { Separator } from "@radix-ui/react-separator";
 import { UserRoundPlus, ChevronDown, Users, Volume2 } from "lucide-react";
+import { Link } from "react-router";
 
 export default function ServerSidebar() {
   return (
@@ -33,9 +34,12 @@ export default function ServerSidebar() {
           <div>
             <div className="flex flex-row mb-3 cursor-pointer">
               <span className="text-custom-accent-gray mr-2 text-2xl">#</span>
-              <span className="text-custom-accent-gray my-auto h-full font-medium">
+              <Link
+                to={"123"}
+                className="text-custom-accent-gray my-auto h-full font-medium"
+              >
                 основной
-              </span>
+              </Link>
             </div>
           </div>
           <div className="flex flex-row mb-2">
@@ -53,9 +57,12 @@ export default function ServerSidebar() {
                 size={20}
                 className="mr-2 text-custom-accent-gray my-auto"
               />
-              <span className="text-custom-accent-gray my-auto h-full font-medium">
+              <Link
+                to={"44123"}
+                className="text-custom-accent-gray my-auto h-full font-medium"
+              >
                 основной
-              </span>
+              </Link>
             </div>
           </div>
         </div>
