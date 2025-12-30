@@ -1,0 +1,80 @@
+[
+  {
+    "id": 2,
+    "name": "E2E Server",
+    "icon": null,
+    "ownerId": 4,
+    "createdAt": "2025-12-28T19:54:41.231Z",
+    "updatedAt": "2025-12-28T19:54:41.231Z",
+    "channels": [
+      {
+        "id": 3,
+        "name": "general",
+        "type": "TEXT",
+        "serverId": 2,
+        "createdAt": "2025-12-28T19:54:41.231Z",
+        "updatedAt": "2025-12-28T19:54:41.231Z"
+      },
+      {
+        "id": 4,
+        "name": "voice",
+        "type": "VOICE",
+        "serverId": 2,
+        "createdAt": "2025-12-28T19:54:41.231Z",
+        "updatedAt": "2025-12-28T19:54:41.231Z"
+      }
+    ]
+  },
+  {
+    "id": 3,
+    "name": "Мой сервер",
+    "icon": "⚡️",
+    "ownerId": 6,
+    "createdAt": "2025-12-28T20:10:08.533Z",
+    "updatedAt": "2025-12-28T20:10:08.533Z",
+    "channels": [
+      {
+        "id": 5,
+        "name": "general",
+        "type": "TEXT",
+        "serverId": 3,
+        "createdAt": "2025-12-28T20:10:08.533Z",
+        "updatedAt": "2025-12-28T20:10:08.533Z"
+      },
+      {
+        "id": 6,
+        "name": "voice",
+        "type": "VOICE",
+        "serverId": 3,
+        "createdAt": "2025-12-28T20:10:08.533Z",
+        "updatedAt": "2025-12-28T20:10:08.533Z"
+      }
+    ]
+  },
+  {
+    "id": 4,
+    "name": "Мой сервер2",
+    "icon": "⚡️",
+    "ownerId": 6,
+    "createdAt": "2025-12-28T20:10:11.522Z",
+    "updatedAt": "2025-12-28T20:10:11.522Z",
+    "channels": [
+      {
+        "id": 7,
+        "name": "general",
+        "type": "TEXT",
+        "serverId": 4,
+        "createdAt": "2025-12-28T20:10:11.522Z",
+        "updatedAt": "2025-12-28T20:10:11.522Z"
+      },
+      {
+        "id": 8,
+        "name": "voice",
+        "type": "VOICE",
+        "serverId": 4,
+        "createdAt": "2025-12-28T20:10:11.522Z",
+        "updatedAt": "2025-12-28T20:10:11.522Z"
+      }
+    ]
+  }
+]
