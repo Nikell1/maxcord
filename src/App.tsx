@@ -7,8 +7,8 @@ import NotFoundPage from "./pages/notFound/NotFoundPage";
 import AuthPage from "./pages/auth/AuthPage";
 import RegisterBlock from "./pages/auth/blocks/RegisterBlock";
 import LoginBlock from "./pages/auth/blocks/LoginBlock";
-import GroupsSidebar from "./pages/home/blocks/GroupsSidebar";
-import ServerSidebar from "./pages/home/blocks/ServerSidebar";
+import GroupsSidebar from "./pages/home/blocks/sidebar/GroupsSidebar";
+import ServerSidebar from "./pages/home/blocks/sidebar/ServerSidebar";
 
 export default function App() {
   const { isAuthenticated } = useAuthStore();
@@ -54,9 +54,12 @@ export default function App() {
           </ProtectedRoute>
         }
       >
-        <Route index element={<Navigate to={ROUTES.ME + "0"} />} />
-        <Route path={ROUTES.ME + ":chatId"} element={<GroupsSidebar />} />
-        <Route path={ROUTES.SERVER + ":serverId"} element={<ServerSidebar />} />
+        <Route index element={<Navigate to={ROUTES.DIRECT + "0"} />} />
+        <Route path={ROUTES.DIRECT + ":chatId"} element={<GroupsSidebar />} />
+        <Route
+          path={ROUTES.SERVER + ":serverId" + "/:branchId"}
+          element={<ServerSidebar />}
+        />
       </Route>
 
       <Route path="*" element={<NotFoundPage />} />

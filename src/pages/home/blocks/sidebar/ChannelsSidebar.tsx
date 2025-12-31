@@ -8,16 +8,16 @@ import { useServersStore } from "@/store/servers/servers";
 
 export default function ChannelsSidebar() {
   const location = useLocation();
-  const isMeRoute = location.pathname.includes(ROUTES.ME);
-  const { servers } = useServersStore();
+  const isDirect = location.pathname.includes(ROUTES.DIRECT);
+  const { servers, currentServerId } = useServersStore();
 
   return (
     <div className="h-full w-25 pt-3 flex flex-col overflow-y-auto no-scrollbar">
       <div className="mx-auto flex flex-col">
         <Link
-          to={ROUTES.ME + "0"}
+          to={ROUTES.DIRECT + "0"}
           className={cn(
-            isMeRoute ? "channelActive bg-custom-accent" : "bg-accent",
+            isDirect ? "channelActive bg-custom-accent" : "bg-accent",
             "p-2 size-12 rounded-xl cursor-pointer relative"
           )}
         >
@@ -28,12 +28,15 @@ export default function ChannelsSidebar() {
 
         {servers.map((server) => (
           <Link
-            to={ROUTES.SERVER + server.id}
+            to={ROUTES.SERVER + server.id + "/" + server.channels[0].id}
             key={server.id}
             className={cn(
-              "bg-accent cursor-pointer size-12 rounded-xl mb-4 relative"
+              currentServerId == server.id && !isDirect && "channelActive",
+              "bg-accent cursor-pointer size-12 rounded-xl mb-4 relative text-3xl p-1"
             )}
-          ></Link>
+          >
+            {server.icon}
+          </Link>
         ))}
         <div className="bg-accent size-12 rounded-xl mb-4 p-2.5">
           <CirclePlus className="size-full" />

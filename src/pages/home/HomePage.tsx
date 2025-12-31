@@ -1,18 +1,20 @@
-import ChannelsSidebar from "./blocks/ChannelsSidebar";
-import UserInfoSidebar from "./blocks/UserInfoSidebar";
-import ChatBlock from "./blocks/ChatBlock";
+import ChannelsSidebar from "./blocks/sidebar/ChannelsSidebar";
+import UserInfoSidebar from "./blocks/sidebar/UserInfoSidebar";
+import ChatBlock from "./blocks/chat/ChatBlock";
 import { Outlet, useLocation, useParams } from "react-router";
 import { useEffect } from "react";
 import { useServersStore } from "@/store/servers/servers";
 import { ROUTES } from "@/constants/routes";
+import LogoIcon from "@/components/LogoIcon";
 
 export default function HomePage() {
   const location = useLocation();
-  const isMeRoute = location.pathname.includes(ROUTES.ME);
+  const isDirect = location.pathname.includes(ROUTES.DIRECT);
   const params = useParams();
   const {
     fetchServersFromFile,
     setCurrentServer,
+    setCurrentChannel,
     isLoading,
     error,
     currentServer,
@@ -32,6 +34,21 @@ export default function HomePage() {
   }, [params.serverId, servers, setCurrentServer]);
 
   useEffect(() => {
+    if (params.branchId) {
+      const branchId = Number(params.branchId);
+
+      if (!isNaN(branchId)) {
+        const branchExists = currentServer?.channels.some(
+          (channel) => channel.id === branchId
+        );
+        if (branchExists) {
+          setCurrentChannel(branchId);
+        }
+      }
+    }
+  }, [params.branchId, setCurrentChannel, currentServer?.channels]);
+
+  useEffect(() => {
     fetchServersFromFile();
   }, [fetchServersFromFile]);
 
@@ -46,8 +63,11 @@ export default function HomePage() {
   return (
     <div className="w-screen h-screen bg-background flex flex-col">
       <div className="w-screen h-10 py-2 px-4 flex justify-center">
-        <p className="font-medium text-sm">
-          {isMeRoute ? "Личные сообщения" : currentServer?.name}
+        <p className="font-medium text-sm flex my-auto">
+          <span className="mr-2 flex">
+            {isDirect ? <LogoIcon className="my-auto" /> : currentServer?.icon}
+          </span>
+          {isDirect ? "Личные сообщения" : currentServer?.name}
         </p>
       </div>
       <div className="flex-1 flex min-h-0">

@@ -3,6 +3,6 @@ export const ROUTES = {
   AUTH: "/auth",
   REG: "/auth/reg",
   LOGIN: "/auth/login",
-  ME: "/channels/@me/",
+  DIRECT: "/channels/direct/",
   SERVER: "/channels/server/",
 };

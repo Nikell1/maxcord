@@ -22,6 +22,22 @@
         "serverId": 2,
         "createdAt": "2025-12-28T19:54:41.231Z",
         "updatedAt": "2025-12-28T19:54:41.231Z"
+      },
+      {
+        "id": 5,
+        "name": "general",
+        "type": "TEXT",
+        "serverId": 2,
+        "createdAt": "2025-12-28T19:54:41.231Z",
+        "updatedAt": "2025-12-28T19:54:41.231Z"
+      },
+      {
+        "id": 6,
+        "name": "voice",
+        "type": "VOICE",
+        "serverId": 2,
+        "createdAt": "2025-12-28T19:54:41.231Z",
+        "updatedAt": "2025-12-28T19:54:41.231Z"
       }
     ]
   },
@@ -34,7 +50,7 @@
     "updatedAt": "2025-12-28T20:10:08.533Z",
     "channels": [
       {
-        "id": 5,
+        "id": 7,
         "name": "general",
         "type": "TEXT",
         "serverId": 3,
@@ -42,7 +58,7 @@
         "updatedAt": "2025-12-28T20:10:08.533Z"
       },
       {
-        "id": 6,
+        "id": 8,
         "name": "voice",
         "type": "VOICE",
         "serverId": 3,
@@ -60,7 +76,7 @@
     "updatedAt": "2025-12-28T20:10:11.522Z",
     "channels": [
       {
-        "id": 7,
+        "id": 9,
         "name": "general",
         "type": "TEXT",
         "serverId": 4,
@@ -68,7 +84,7 @@
         "updatedAt": "2025-12-28T20:10:11.522Z"
       },
       {
-        "id": 8,
+        "id": 10,
         "name": "voice",
         "type": "VOICE",
         "serverId": 4,

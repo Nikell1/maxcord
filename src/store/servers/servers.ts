@@ -14,6 +14,7 @@ interface IServersActions {
   setServers: (servers: IServer[]) => void;
   setLoading: (loading: boolean) => void;
   setCurrentServer: (serverId: number) => void;
+  setCurrentChannel: (channelId: number) => void;
   setError: (error: string | null) => void;
   clearError: () => void;
   fetchServersFromFile: () => Promise<void>;
@@ -33,6 +34,12 @@ const serversStore = create<IServersState & IServersActions>()(
           set({
             currentServerId: serverId,
             currentChannelId: null,
+          });
+        },
+
+        setCurrentChannel: (channelId) => {
+          set({
+            currentChannelId: channelId,
           });
         },
 
@@ -86,6 +93,7 @@ export const useServersStore = () => {
     isLoading,
     error,
     setCurrentServer,
+    setCurrentChannel,
     fetchServersFromFile,
   } = serversStore();
 
@@ -104,6 +112,7 @@ export const useServersStore = () => {
     currentServer,
     currentChannel,
     setCurrentServer,
+    setCurrentChannel,
     fetchServersFromFile,
   };
 };
